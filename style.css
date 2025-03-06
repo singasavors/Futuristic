@@ -12,14 +12,25 @@ body {
     overflow: hidden;
 }
 
+/* ✅ Parallax Background Effect */
 .background {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: url('cyberpunk-city.png') no-repeat center center/cover;
-    background-attachment: fixed;
+    overflow: hidden;
 }
 
+.cityscape {
+    width: 110%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.1s ease-out;
+}
+
+/* ✅ Overlay Content */
 .overlay {
     position: absolute;
     top: 50%;
@@ -32,13 +43,40 @@ body {
     max-width: 800px;
 }
 
-/* ✅ Fix Font Sizes for Mobile */
+/* ✅ Glitch Animation */
 .glitch {
     font-size: 4rem;
     font-weight: 700;
     animation: glitch 1.5s infinite;
 }
 
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 5px cyan; }
+    50% { text-shadow: -2px -2px 5px magenta; }
+    100% { text-shadow: 2px 2px 5px cyan; }
+}
+
+/* ✅ Neon Button Effect */
+.btn {
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    color: white;
+    background: linear-gradient(90deg, cyan, magenta);
+    border-radius: 5px;
+    transition: 0.3s;
+    text-shadow: 0 0 10px magenta;
+    box-shadow: 0 0 15px cyan;
+    border: none;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, magenta, cyan);
+    box-shadow: 0 0 25px magenta;
+    transform: scale(1.1);
+}
+
+/* ✅ Responsive Adjustments */
 @media (max-width: 768px) {
     .glitch {
         font-size: 2.5rem;
@@ -50,29 +88,4 @@ body {
         font-size: 1rem;
         padding: 8px 16px;
     }
-}
-
-/* ✅ Fix Text Readability */
-.subtitle {
-    font-size: 1.5rem;
-    margin: 20px 0;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    display: inline-block;
-    border-radius: 5px;
-}
-
-.btn {
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 12px 24px;
-    color: white;
-    background: linear-gradient(90deg, cyan, magenta);
-    border-radius: 5px;
-    transition: 0.3s;
-    text-shadow: 0 0 10px magenta;
-}
-
-.btn:hover {
-    background: linear-gradient(90deg, magenta, cyan);
 }
